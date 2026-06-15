@@ -40,7 +40,7 @@
     <div class="apply-form__container">
       <div class="apply-form__card">
         <h2 class="apply-form__title">Apply now</h2>
-        <form class="apply-form__fields" novalidate>
+        <form class="apply-form__fields" id="apply-form" action="submit.php" method="post" novalidate>
           <div class="apply-form__field">
             <label class="apply-form__label" for="apply-name">Name <span class="apply-form__required">*</span></label>
             <input class="apply-form__input" type="text" id="apply-name" name="name" required>
@@ -61,16 +61,7 @@
           <div class="apply-form__row">
             <div class="apply-form__field">
               <label class="apply-form__label" for="apply-city">City <span class="apply-form__required">*</span></label>
-              <div class="apply-form__select-wrapper">
-                <select class="apply-form__select" id="apply-city" name="city" required>
-                  <option value="" disabled selected></option>
-                </select>
-                <span class="apply-form__select-arrow" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 6L8 10L12 6" stroke="#231F20" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-              </div>
+              <input class="apply-form__input" type="text" id="apply-city" name="city" inputmode="text" pattern="[A-Za-z .'-]+" placeholder="Enter your city" required>
               <span class="apply-form__error" id="apply-city-error"></span>
             </div>
             <div class="apply-form__field">
@@ -87,7 +78,9 @@
             <input class="apply-form__checkbox" type="checkbox" id="apply-consent" name="consent">
             <label class="apply-form__consent-text" for="apply-consent">I hereby authorize Karur Vysya Bank and / or its representatives to communicate with me by way of phone or mail in connection with this enquiry. This consent will supersede any registration for any Do Not Disturb.</label>
           </div>
+          <span class="apply-form__error" id="apply-consent-error"></span>
           <button class="apply-form__submit" type="submit">Submit</button>
+          <p class="apply-form__status" id="apply-form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </div>
